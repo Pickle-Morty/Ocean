@@ -1,0 +1,32 @@
+.contactForm {
+    padding: 50px 0 ;
+}
+
+.contactForm__wrapper {
+    margin: 0 auto;
+    max-width: 800px;
+    background: lightblue;
+    padding: 20px 30px;
+    border-radius: 20px 20px 0 0 ;
+}
+
+.contactForm__tilte {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    margin-bottom: 20px;
+    
+}
+
+.contactForm__textarea {
+    height: 30px;
+    width: 100%;
+    padding: 5px 15px;
+    margin-bottom: 10px;
+    resize: none;
+}
+
+.contactForm__form .btn__submit {
+    margin: 0 auto;
+    display: block;
+}

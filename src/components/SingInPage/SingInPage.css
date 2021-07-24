@@ -1,0 +1,37 @@
+.singInPage__wrapper {
+    grid-area: hello;
+   
+}
+
+.singInPage {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px 0 ;
+}
+
+.singInPage {
+    display: grid;
+    grid-template-areas: "hello hello" "signIn signUp"; 
+}
+
+.singIn__title {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.singIn__offer {
+    font-size: 18px;
+    margin-bottom: 60px;
+    line-height: 1.5em;
+}
+
+@media (max-width:880px) {
+    .singInPage {
+        grid-template-areas: "hello" "signIn" "signUp"; 
+    }
+
+    .singInPage__wrapper {
+        text-align: center;
+    }
+}

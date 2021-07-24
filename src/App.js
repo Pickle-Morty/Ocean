@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import './App.css'
+import Header from "./components/Header"
+import Navbar from "./components/Navbar"
+import ProductPage from "./components/ProductPage"
+import HomePage from "./components/Home/Home"
+import { BrowserRouter, Route } from "react-router-dom"
+import SingInPage from "./components/SingInPage/SingInPage"
+import AddProductPage from "./components/AddProductPage/AddProductPage"
 
-function App() {
+
+
+
+
+
+
+
+const App = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+        <Route path="/product" render ={ () => <ProductPage productData = {props.state.productPage.productData} catalogData = {props.state.productPage.catalogData} />}/>
+        <Route exact path="/" render={ () => <HomePage catalogData = {props.state.homePage.catalogData} productData = {props.state.homePage.productData}/>}  /> 
+        <Route exact path="/singIn" render ={ ()=> <SingInPage />} />
+        <Route exact path="/addProduct" render = { ()=> <AddProductPage addProduct ={props.addProduct} addProductData={props.state.addProductPage} updateTitleText ={props.updateTitleText} />} />
+    </BrowserRouter>
   );
 }
 
+
+
+
 export default App;
+

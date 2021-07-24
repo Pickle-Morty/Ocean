@@ -1,0 +1,16 @@
+.cart {
+    display: block;
+    height: 400px;
+    background: linear-gradient(118.23deg, rgba(249, 249, 249, 0.7) -22.02%, rgba(196, 196, 196, 0.14) 130.92%);
+}
+
+.cart__img {
+    display: block;
+    height: 250px;
+    width: 100%;
+    background: white;
+}
+
+.cart__text {
+    margin: 15px 0 0 10px;
+}

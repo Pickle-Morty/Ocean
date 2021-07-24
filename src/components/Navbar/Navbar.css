@@ -1,0 +1,17 @@
+.sidebar {
+    grid-area: nav;
+    background: lightgray;
+    padding: 19px 21px;
+    margin: 20px 10px;
+    border-radius: 15px;
+}
+
+.sidebar__item {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.sidebar__categoryitem {
+    font-size: 14px;
+    margin: 10px 0 10px 10px;
+}
