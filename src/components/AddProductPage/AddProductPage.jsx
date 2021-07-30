@@ -4,12 +4,11 @@ import Header from "../Header"
 import "./AddProductPage.css"
 import ProductFormContainer from "./ProductForm/ProductFormContainer"
 
-const AddProductPage = ({store}) => {
-    let state = store.getState()
+const AddProductPage = () => {
     return (
        <section className="addProductPage">
            <Header />
-           <ProductFormContainer  dispatch ={store.dispatch.bind(store)} newTitleText={state.productPage.newTitleText} />
+           <ProductFormContainer   />
        </section>
     )
 }
