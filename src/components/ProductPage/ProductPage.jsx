@@ -1,4 +1,4 @@
-import "./Product.css"
+import "./ProductPage.css"
 import ProductCart from "../ProductCart"
 import Product from "./Product"
 import Header from "../Header";
@@ -6,7 +6,7 @@ import Navbar from "../Navbar";
 
 
 
-const Main = (props) => {
+const ProductPage = (props) => {
     let productCarts =  props.productData.map( cart => <ProductCart price={cart.price + "$"} title={cart.title} category={cart.category} id = {cart.id}/> );
     return (
         <div className="">
@@ -24,4 +24,4 @@ const Main = (props) => {
     );
 }
 
-export default Main
+export default ProductPage

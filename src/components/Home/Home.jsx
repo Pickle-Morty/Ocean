@@ -5,16 +5,17 @@ import NewPoduct from "./NewProduct/NewProduct"
 import ContactForm from "../ContactForm/ContactForm"
 
 
-const Home = (props) => {
+const HomePage = ({store}) => {
+    let state = store.getState()
     return (
         <div>
             <Header customClass="absolute"/>
             <Hero />
-            <Catalog catalogData={props.catalogData} />
-            <NewPoduct productData={props.productData}/>  
+            <Catalog catalogData={state.homePage.catalogData} />
+            <NewPoduct productData={state.homePage.productData}/>  
             <ContactForm />
         </div>
     )
 }
 
-export default Home
+export default HomePage

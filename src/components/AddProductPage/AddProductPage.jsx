@@ -2,13 +2,14 @@ import React from "react"
 import Header from "../Header"
 
 import "./AddProductPage.css"
-import ProductForm from "./ProductForm/ProductForm"
+import ProductFormContainer from "./ProductForm/ProductFormContainer"
 
-const AddProductPage = (props) => {
+const AddProductPage = ({store}) => {
+    let state = store.getState()
     return (
        <section className="addProductPage">
            <Header />
-           <ProductForm dispatch ={props.dispatch} newTitleText={props.productData.newTitleText}  />
+           <ProductFormContainer  dispatch ={store.dispatch.bind(store)} newTitleText={state.productPage.newTitleText} />
        </section>
     )
 }

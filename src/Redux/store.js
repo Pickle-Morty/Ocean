@@ -49,16 +49,14 @@ let store = {
 }
 }
 
-export const sendProductActionCreator = (price, title) => {
-    console.log ("type: UPDATE_TITLE_TEXT,")
+export const addProductActionCreator = (price, title) => {
     return {
         type: ADD_PRODUCT,
         price: price,
         title: title
     }
 }
-export const onTitleChangeActionCreator = (newTitleText) => {
-    
+export const updateTitleActionCreator = (newTitleText) => {
     return {
         type: UPDATE_TITLE_TEXT,
         newTitleText: newTitleText
