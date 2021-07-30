@@ -5,14 +5,13 @@ import NewPoduct from "./NewProduct/NewProduct"
 import ContactForm from "../ContactForm/ContactForm"
 
 
-const HomePage = ({store}) => {
-    let state = store.getState()
+const HomePage = ({catalogData, productData}) => {
     return (
         <div>
             <Header customClass="absolute"/>
             <Hero />
-            <Catalog catalogData={state.homePage.catalogData} />
-            <NewPoduct productData={state.homePage.productData}/>  
+            <Catalog catalogData={catalogData} />
+            <NewPoduct productData={productData}/>  
             <ContactForm />
         </div>
     )

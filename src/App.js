@@ -9,7 +9,7 @@ import SingInPage from "./components/SingInPage/SingInPage"
 import AddProductPage from "./components/AddProductPage/AddProductPage"
 import ProductPageContainer from "./components/ProductPage/ProductPageContainer"
 import HomePageContainer from "./components/Home/HomePageContainer"
-import StoreContext from "./StoreContext"
+import {Provider} from "react-redux"
 
 
 
@@ -22,12 +22,13 @@ import StoreContext from "./StoreContext"
 const App = ({store}) => {
   return (
     <BrowserRouter>
-       <StoreContext.Provider value = {store} >
+        <Provider store={store}>
           <Route exact path="/"> <HomePageContainer /> </Route> 
           <Route path="/product"><ProductPageContainer /></Route>
           <Route exact path="/singIn" render ={ ()=> <SingInPage />} />
           <Route exact path="/addProduct" render = { ()=> <AddProductPage />} />
-       </StoreContext.Provider>
+        </Provider>
+          
     </BrowserRouter>
   );
 }

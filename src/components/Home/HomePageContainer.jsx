@@ -5,18 +5,22 @@ import NewPoduct from "./NewProduct/NewProduct"
 import ContactForm from "../ContactForm/ContactForm"
 import HomePage from "./Home"
 import StoreContext from "../../StoreContext"
+import { connect } from "react-redux"
 
 
-const HomePageContainer = () => {
-    return <StoreContext.Consumer >
-        {
-            (store) => {
-                return (
-                    <HomePage store = {store} />
-                )
-            }
-        }
-    </StoreContext.Consumer>
+
+
+let mapStateToProps = (state) => {
+    return {
+        catalogData: state.homePage.catalogData,
+        productData: state.homePage.productData
+    }
 }
+let mapDispatchToProps = () => {
+    return 
+}
+
+
+const HomePageContainer = connect(mapStateToProps, mapDispatchToProps)(HomePage)
 
 export default HomePageContainer

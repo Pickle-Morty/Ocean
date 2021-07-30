@@ -3,35 +3,32 @@ import React from "react"
 import { addProductActionCreator, updateTitleActionCreator } from "../../../Redux/store"
 import ProductForm from "./ProductForm"
 import StoreContext from "../../../StoreContext"
+import { connect } from "react-redux"
 
 
-const ProductFormContainer = ({ store }) => {
 
-    return (
-        <StoreContext.Consumer>
-        {
-            (store) => {
-                let dispatch = store.dispatch.bind(store)
 
-                let addProduct = (price, title) => {
-                    let action = addProductActionCreator(price, title)
-                    dispatch(action)
-                }
-                let updateTitle = (newTitleText) => {
-                    let action = updateTitleActionCreator(newTitleText)
-                    dispatch(action)
-                }
-                return (
-                    <ProductForm newTitleText={store.getState().productPage.newTitleText}
-                        addProduct={addProduct} updateTitle={updateTitle} />
-                )
-            }
+let mapStateToProps = (state) => {
+    return {
+        newTitleText: state.productPage.newTitleText
+    }
+}
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        addProduct: (price, title) => {
+            console.log("BUG")
+            let action = addProductActionCreator(price, title)
+            dispatch(action)
+        },
+        updateTitle: (newTitleText) => {
+            let action = updateTitleActionCreator(newTitleText)
+            dispatch(action)
         }
-        </StoreContext.Consumer>
-
-    )
+    }
 }
 
 
+const ProductFormContainer = connect(mapStateToProps, mapDispatchToProps)(ProductForm)
 
 export default ProductFormContainer
