@@ -8,7 +8,7 @@ const AddProductPage = (props) => {
     return (
        <section className="addProductPage">
            <Header />
-           <ProductForm addProduct ={props.addProduct} newTitleText={props.addProductData.newTitleText} updateTitleText ={props.updateTitleText} />
+           <ProductForm dispatch ={props.dispatch} newTitleText={props.productData.newTitleText}  />
        </section>
     )
 }

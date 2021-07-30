@@ -1,4 +1,4 @@
-import store from "./Redux/state"
+import store from "./Redux/storeRedux"
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -6,20 +6,22 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 
-
-export let reRenderEntireThree = (store) => { 
+let rerenderEntireThree = (state) => { 
   ReactDOM.render(
     <React.StrictMode>
-      <App state={store.getState()} addProduct ={store.addProduct} updateTitleText ={store.updateTitleText}/>
+      <App state={store.getState()} dispatch ={store.dispatch.bind(store)} store = {store}/>
     </React.StrictMode>,
     document.getElementById('root')
   );
 }
 
 
-reRenderEntireThree(store)
+rerenderEntireThree(store.getState())
 
-store.subscibe(reRenderEntireThree)
+store.subscribe(() => {
+  let state = store.getState();
+  rerenderEntireThree(state);
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -1,21 +1,24 @@
 import "./ProductForm.css"
 import React from "react"
+import {sendProductActionCreator, onTitleChangeActionCreator} from "../../../Redux/store"
+
 
 const ProductForm = (props) => {
     let productTitle = React.createRef()
     let productCategory = React.createRef()
     let productPrice = React.createRef()
-
+    
     let sendProduct = () => {
-        
-        props.addProduct(productTitle.current.value,
-             productPrice.current.value)
+        let price = productPrice.current.value
+        let title = productTitle.current.value
+        let action = sendProductActionCreator(price, title)
+        props.dispatch(action)
     }
-
     let onTitleChange = () => {
         let newTitleText = productTitle.current.value
-        console.log(newTitleText)
-        props.updateTitleText(newTitleText) 
+        let action = onTitleChangeActionCreator(newTitleText)
+        props.dispatch(action)
+
     }
     return (
         <section className="productForm container">
@@ -28,8 +31,8 @@ const ProductForm = (props) => {
             </div>
             <form action="" className="form__form">
                 <span className="form__text">Название</span>
-                <input  ref={productTitle} type="text" className="form__input" value={props.newTitleText} 
-                onChange={onTitleChange} />
+                <input ref={productTitle} type="text" className="form__input" value={props.newTitleText}
+                    onChange={onTitleChange} />
                 <span className="form__text">Категория</span>
                 <input ref={productCategory} type="text" className="form__input" />
                 <span className="form__text">Цена</span>
@@ -41,6 +44,6 @@ const ProductForm = (props) => {
     )
 }
 
-// Завтра использовать стили из SignInPage сделать их глобальными для сменив класс singIn на form
+
 
 export default ProductForm
