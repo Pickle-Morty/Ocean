@@ -17,7 +17,6 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         addProduct: (price, title) => {
-            console.log("BUG")
             let action = addProductActionCreator(price, title)
             dispatch(action)
         },
