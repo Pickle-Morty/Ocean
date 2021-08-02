@@ -1,7 +1,16 @@
-import "./ProductBox.css"
+import "./ProductBox.scss"
 
 
-const ProductBox = ({ title, price }) => {
+const ProductBox = ({ title, price, id, followed, follow, unfollow }) => {
+
+    const onFollow = () => {
+        follow(id)
+    }
+    const onUnfollow = () => {
+
+        unfollow(id)
+        console.log(followed)
+    }
     return (
         <div className="productBox">
             <img src="" alt="" className="product__img" />
@@ -29,9 +38,16 @@ const ProductBox = ({ title, price }) => {
             </div>
             <div className="product__sale">
                 <p className="product__price">{price}$</p>
-                <button className="btn__unfollowed">
-                    <div></div><span>Мои желания</span>
-                </button>
+                {followed ?
+                    <button className="btn__unfollowed" onClick={onUnfollow}>
+                        <div></div><span>В моих желаниях</span>
+                    </button>
+                    :
+                    <button className="btn__unfollowed" onClick={onFollow}>
+                        <div></div><span>Мои желания</span>
+                    </button>
+                }
+
             </div>
         </div>
 

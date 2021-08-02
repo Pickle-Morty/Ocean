@@ -10,7 +10,7 @@ import BasketCheck from "./BasketCheck/BasketCheck";
 
 
 
-const BasketPage = ({basketData}) => {
+const BasketPage = ({basketData, follow, unfollow}) => {
     const { items, score } = basketData
     return (
         <>
@@ -22,7 +22,7 @@ const BasketPage = ({basketData}) => {
                 <h1 className="сategory__title">Корзина</h1>
                 <div className="basket">
                     <div className="basket__tape">
-                        { items.map(item => <ProductBox title = {item.title} price={item.price}/>) }
+                        { items.map(item => <ProductBox title = {item.title} price={item.price} id={item.id} followed ={item.followed} follow = {follow} unfollow={unfollow} />) }
                     </div>
                     <BasketCheck score ={score}/>
                 </div>

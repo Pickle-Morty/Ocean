@@ -13,8 +13,6 @@ let store = createStore(reducers);
 export default store  
 
 
-
-
 let ADD_PRODUCT = "ADD-PRODUCT"
 let UPDATE_TITLE_TEXT = "UPDATE-TITLE-TEXT"
 let FOLLOW = "FOLLOW"

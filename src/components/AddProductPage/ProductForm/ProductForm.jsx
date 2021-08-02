@@ -1,6 +1,6 @@
 import "./ProductForm.css"
 import React from "react"
-import {sendProductActionCreator, onTitleChangeActionCreator} from "../../../Redux/storeRedux"
+
 
 
 const ProductForm = ({addProduct, updateTitle, newTitleText}) => {

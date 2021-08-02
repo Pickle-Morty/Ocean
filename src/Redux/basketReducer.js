@@ -18,15 +18,17 @@ let FOLLOW = "FOLLOW"
 let UNFOLLOW = "UNFOLLOW"
 
 const basketReducer = (state = initialState, action) => {
+    let NS = state
     switch (action.type) {
         case FOLLOW: 
             let newState = {
                 ...state, //создаем поверхностную копию стейта
                 items: state.items.map( item =>{ //создаем глубокую копию стейта с условием
                     if (item.id === action.itemId) { // глубокую копию итема чей id равен actionId (id коитема на который мы кликнули)
-                        return {...item, followed: true} // возвращаем скопированный item меняя его follow на true
+                        return {...item, 
+                            followed: true} // возвращаем скопированный item меняя его follow на true
                     }
-                    return 
+                    return item
                 })
             }
             return newState
@@ -37,12 +39,12 @@ const basketReducer = (state = initialState, action) => {
                     if (item.id === action.itemId) { 
                         return {...item, followed: false} 
                     }
-                    return 
+                    return item
                 })
             }
             return newStat
         default:
-            return state
+            return NS
     }
 }
 
