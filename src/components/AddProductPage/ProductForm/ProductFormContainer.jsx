@@ -1,6 +1,6 @@
 import "./ProductForm.css"
 import React from "react"
-import { addProductActionCreator, updateTitleActionCreator } from "../../../Redux/store"
+import { addProductActionCreator, updateTitleActionCreator } from "../../../Redux/storeRedux"
 import ProductForm from "./ProductForm"
 import StoreContext from "../../../StoreContext"
 import { connect } from "react-redux"

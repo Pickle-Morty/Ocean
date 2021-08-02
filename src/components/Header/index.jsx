@@ -20,7 +20,7 @@ const Header = (props) => {
                     <NavLink to ="#"className="header__item">Каталог</NavLink>
                     <NavLink to ="#"className="header__item">Доставка и Оплата</NavLink>
                     <NavLink to ="/addProduct"className="header__item">Добавить товар</NavLink>
-                    <NavLink to ="#"className="header__item">Корзина</NavLink>
+                    <NavLink to ="/basket"className="header__item">Корзина</NavLink>
                     <NavLink to ="/singIn"className="header__item">Войти</NavLink>
                     <NavLink to ="#"className="header__item">Избранное</NavLink>
                 </ul>

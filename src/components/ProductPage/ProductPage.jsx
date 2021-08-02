@@ -1,6 +1,6 @@
 import "./ProductPage.css"
-import ProductCart from "../ProductCart"
-import Product from "./Product"
+import ProductCart from "../common/ProductCart"
+import Product from "../common/ProductBox/ProductBox"
 import Header from "../Header";
 import Navbar from "../Navbar";
 

@@ -27,17 +27,24 @@ let initialState = {
 }
 
 
+
+
 const addProductReducer = (state = initialState, action) => {
     let newState = {...state}
     newState.productData = [...state.productData]
-    if (action.type === ADD_PRODUCT) {
-        let newProduct =  { id: 1, price: action.price, title: action.title, category: "Джинсы" };
-        newState.productData.push(newProduct);
-        newState.newTitleText = ""
-    } else if (action.type === UPDATE_TITLE_TEXT) {
-        newState.newTitleText = action.newTitleText;
+    switch (action.type) {
+        case ADD_PRODUCT: 
+            let newProduct =  { id: 1, price: action.price, title: action.title, category: "Джинсы" };
+            newState.productData.push(newProduct);
+            newState.newTitleText = ""
+            return newState
+        case UPDATE_TITLE_TEXT:
+            newState.newTitleText = action.newTitleText;
+            return newState
+        default:
+            return newState
     }
-    return newState
+    
 }
 
 export default addProductReducer
