@@ -1,12 +1,8 @@
 import React from "react"
-import { NavLink } from "react-router-dom"
-import Header from "../Header";
-import ProductBox from "../common/ProductBox/ProductBox";
 import "./Basket.scss"
-import BasketCheck from "./BasketCheck/BasketCheck";
 import BasketPage from "./Basket";
 import { connect } from "react-redux";
-import { followAC, unfollowAC } from "../../Redux/storeRedux";
+import { followAC, setItemsAC, unfollowAC } from "../../Redux/storeRedux";
 
 
 
@@ -24,6 +20,12 @@ let mapDispatchToProps = (dispatch) => {
         unfollow: (id) => {
             let action = unfollowAC(id)
             dispatch(action)
+        },
+        setItems : (items) => {
+            console.log("згр")
+            debugger
+            let action = setItemsAC(items)
+            dispatch (action)
         }
     }
 }

@@ -1,9 +1,5 @@
 let initialState = {
-    items: [
-        { id: 0, title: "Название продукта", price: 20, followed: false }, 
-        { id: 1, title: "Название продукта", price: 20, followed: false }, 
-        { id: 2, title: "Название продукта", price: 20, followed: false }, 
-        { id: 3, title: "Название продукта", price: 20, followed: false }, 
+    items: [  
     ],
     score : {
         subtotal: 73.98, 
@@ -14,14 +10,14 @@ let initialState = {
     }
 }
 
-let FOLLOW = "FOLLOW"
-let UNFOLLOW = "UNFOLLOW"
+const FOLLOW = "FOLLOW"
+const UNFOLLOW = "UNFOLLOW"
+const SET_ITEMS = "SET_ITEMS"
 
 const basketReducer = (state = initialState, action) => {
-    let NS = state
     switch (action.type) {
         case FOLLOW: 
-            let newState = {
+            return { // а еще можно писать вот так что бы не придумывать название переменной
                 ...state, //создаем поверхностную копию стейта
                 items: state.items.map( item =>{ //создаем глубокую копию стейта с условием
                     if (item.id === action.itemId) { // глубокую копию итема чей id равен actionId (id коитема на который мы кликнули)
@@ -31,20 +27,26 @@ const basketReducer = (state = initialState, action) => {
                     return item
                 })
             }
-            return newState
+
         case UNFOLLOW:
-            let newStat = {
+            return {
                 ...state, 
-                items: state.items.map( item =>{ 
+                items: state.items.map( item => { 
                     if (item.id === action.itemId) { 
                         return {...item, followed: false} 
                     }
                     return item
                 })
             }
-            return newStat
+        case SET_ITEMS: {
+            return {...state, 
+                items: [
+                    ...state.items, ...action.items
+                ]
+            }
+        }
         default:
-            return NS
+            return state
     }
 }
 

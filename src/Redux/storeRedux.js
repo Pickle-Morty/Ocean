@@ -17,6 +17,7 @@ let ADD_PRODUCT = "ADD-PRODUCT"
 let UPDATE_TITLE_TEXT = "UPDATE-TITLE-TEXT"
 let FOLLOW = "FOLLOW"
 let UNFOLLOW = "UNFOLLOW"
+const SET_ITEMS = "SET_ITEMS"
 
 export const addProductActionCreator = (price, title) => {
     return {
@@ -44,7 +45,12 @@ export const unfollowAC = (id) => {
         itemId: id,
     }
 }
-
+export const setItemsAC = (items) => {
+    return {
+        type: SET_ITEMS,
+        items: items
+    }
+}
 
 
   
