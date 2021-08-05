@@ -18,6 +18,7 @@ let UPDATE_TITLE_TEXT = "UPDATE-TITLE-TEXT"
 let FOLLOW = "FOLLOW"
 let UNFOLLOW = "UNFOLLOW"
 const SET_ITEMS = "SET_ITEMS"
+const SET_CURRENTPAGE = "SET_CURRENTPAGE"
 
 export const addProductActionCreator = (price, title) => {
     return {
@@ -49,6 +50,13 @@ export const setItemsAC = (items) => {
     return {
         type: SET_ITEMS,
         items: items
+    }
+}
+
+export const setCurrentPageAC = (currentPage) => {
+    return {
+        type: SET_CURRENTPAGE,
+        currentPage: currentPage
     }
 }
 

@@ -12,6 +12,23 @@
     }
 }
 
+.navigationRow {
+    padding: 10px 0 ;
+    display: flex;
+}
+
+.item {
+    display: block;
+    margin: 0 4px;
+    font-size: 22px;
+    &.curent {
+        font-weight: 900;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 @media (max-width: 870px) {
     .basket {
         flex-direction: column-reverse;

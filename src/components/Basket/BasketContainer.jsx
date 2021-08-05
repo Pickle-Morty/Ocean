@@ -1,8 +1,8 @@
 import React from "react"
 import "./Basket.scss"
-import BasketPage from "./Basket";
+import BasketPage from "./BasketС";
 import { connect } from "react-redux";
-import { followAC, setItemsAC, unfollowAC } from "../../Redux/storeRedux";
+import { followAC, setCurrentPageAC, setItemsAC, unfollowAC } from "../../Redux/storeRedux";
 
 
 
@@ -22,9 +22,11 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(action)
         },
         setItems : (items) => {
-            console.log("згр")
-            debugger
             let action = setItemsAC(items)
+            dispatch (action)
+        },
+        setCurrentPage : (currentPage) => {
+            let action = setCurrentPageAC (currentPage)
             dispatch (action)
         }
     }

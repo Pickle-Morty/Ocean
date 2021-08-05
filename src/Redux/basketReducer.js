@@ -7,12 +7,16 @@ let initialState = {
         taxToltal: 16.53,
         delivery: 0,
         total: 89.84 
-    }
+    },
+    pageSize: 5,
+    totalUserCount: 20,
+    currentPage: 1,
 }
 
 const FOLLOW = "FOLLOW"
 const UNFOLLOW = "UNFOLLOW"
 const SET_ITEMS = "SET_ITEMS"
+const SET_CURRENTPAGE = "SET_CURRENTPAGE"
 
 const basketReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -41,8 +45,13 @@ const basketReducer = (state = initialState, action) => {
         case SET_ITEMS: {
             return {...state, 
                 items: [
-                    ...state.items, ...action.items
+                     ...action.items
                 ]
+            }
+        }
+        case SET_CURRENTPAGE: {
+            return {...state, 
+                currentPage: action.currentPage
             }
         }
         default:
